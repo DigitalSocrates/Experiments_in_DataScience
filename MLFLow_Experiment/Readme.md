@@ -23,15 +23,17 @@ mlflow.sklearn.autolog(disable=False,
                        log_datasets=True)
 ```
 Few important points
-1. mflow is set to autolog for sklearn library - modify if use some other library
+1. mflow is configured to autolog for the sklearn library; please modify it if you are using a different library. Also, if you include this code line, it will be enabled by default. I have exposed it simply as a reminder.
 1. log_models is set to True
 1. log_datasets is set to True
 
 # Experiments 
 
-As i build models and train them, i started to use MlFlow to keep track of parameters, metrics and other useful information
+As i build models and train them, I use MlFlow to keep track of parameters, metrics and other useful information thus comes the experiment. 
 
-Let us see what I mean
+As per official documentation "Each experiment lets you visualize, search, and compare runs, as well as download run artifacts or metadata for analysis in other tools. Experiments are maintained in a ... MLflow tracking server."
+
+Let us see what it means
 ![Experiments Expanded](static/MlFlow/MlFlow_Experiments_Expanded.png)
 
 
@@ -62,4 +64,9 @@ tags = {"team": "Engineering Team Name",
 
 
 ## Artifacts
-![Experiment Artifacts Expanded](static/MlFlow/MlFlow_Experiments_Expanded_Artifacts.png)
+![Experiment Artifacts Expanded](static/MlFlow/MlFlow_Experiments_Expanded_Artifacts.png)]
+
+
+## Model
+
+Per official documentation "An MLflow Model is a standard format for packaging machine learning models that can be used in a variety of downstream tools"
