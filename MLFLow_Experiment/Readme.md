@@ -1,18 +1,19 @@
-# To install MlFlow 
+# To install MLflow 
 pip install mlflow
 
-# To start MlFlow server
-Run the following command
+# To start MLflow server
+In the terminal window run the following command to start server locally
 mlflow ui
 or
 mlflow server --default-artifact-root ./mlruns --host 127.0.0.0 --port 5000
 
-go to http://127.0.0.1:5000
-and verify that service is running
+Should see the following
+![Starting MLflow](static/MLflow/MlFlow_Start_Command.png)
 
-![Main Screen](static/MlFlow/MlFlow_Experiments.png)
+go to http://127.0.0.1:5000 to verify that service is running
+![Main Screen](static/MLflow/MlFlow_Experiments.png)
 
-add the following to your code
+Make sure that you add the following to your code
 ```
 # enable mlflow autologging
 import mlflow
@@ -22,30 +23,30 @@ mlflow.sklearn.autolog(disable=False,
                        log_models=True,
                        log_datasets=True)
 ```
-Few important points
+Few important points here
 1. mflow is configured to autolog for the sklearn library; please modify it if you are using a different library. Also, if you include this code line, it will be enabled by default. I have exposed it simply as a reminder.
 1. log_models is set to True
 1. log_datasets is set to True
 
 # Experiments 
 
-As i build models and train them, I use MlFlow to keep track of parameters, metrics and other useful information thus comes the experiment. 
+As i build models and train them, I use MLflow to keep track of parameters, metrics and other useful information thus comes the experiment. 
 
-As per official documentation "Each experiment lets you visualize, search, and compare runs, as well as download run artifacts or metadata for analysis in other tools. Experiments are maintained in a ... MLflow tracking server."
+As per official documentation ">Each experiment lets you visualize, search, and compare runs, as well as download run artifacts or metadata for analysis in other tools. Experiments are maintained in a ... MLflow tracking server."
 
 Let us see what it means
-![Experiments Expanded](static/MlFlow/MlFlow_Experiments_Expanded.png)
+![Experiments Expanded](static/MLflow/MlFlow_Experiments_Expanded.png)
 
 
 ## Datasets
-![Experimen Datasets Expanded](static/MlFlow/MlFlow_Experiments_Expanded_Datasets.png)
+![Experimen Datasets Expanded](static/MLflow/MlFlow_Experiments_Expanded_Datasets.png)
 
 ## Parameters
-![Experiment Parameters Expanded](static/MlFlow/MlFlow_Experiments_Expanded_Parameters.png)
+![Experiment Parameters Expanded](static/MLflow/MlFlow_Experiments_Expanded_Parameters.png)
 
 
 ## Metrics
-![Experiment Metrics Expanded](static/MlFlow/MlFlow_Experiments_Expanded_Metrics.png)
+![Experiment Metrics Expanded](static/MLflow/MlFlow_Experiments_Expanded_Metrics.png)
 
 
 ## Tags
@@ -60,13 +61,13 @@ tags = {"team": "Engineering Team Name",
         "target": "PE"}
 ```
 
-![Experiment Tags Expanded](static/MlFlow/MlFlow_Experiments_Expanded_Tags.png)
+![Experiment Tags Expanded](static/MLflow/MlFlow_Experiments_Expanded_Tags.png)
 
 
 ## Artifacts
-![Experiment Artifacts Expanded](static/MlFlow/MlFlow_Experiments_Expanded_Artifacts.png)]
+![Experiment Artifacts Expanded](static/MLflow/MlFlow_Experiments_Expanded_Artifacts.png)]
 
 
 ## Model
 
-Per official documentation "An MLflow Model is a standard format for packaging machine learning models that can be used in a variety of downstream tools"
+Per official documentation ">An MLflow Model is a standard format for packaging machine learning models that can be used in a variety of downstream tools"
