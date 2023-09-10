@@ -4,6 +4,8 @@ pip install mlflow
 # To start MlFlow server
 Run the following command
 mlflow ui
+or
+mlflow server --default-artifact-root ./mlruns --host 127.0.0.0 --port 5000
 
 go to http://127.0.0.1:5000
 and verify that service is running
@@ -16,3 +18,20 @@ As i build models and train them, i started to use MlFlow to keep track of param
 
 Let us see what I mean
 ![Experiments Expanded](static/MlFlow/MlFlow_Experiments_Expanded.png)
+
+
+## Datasets
+![Experimen Datasets Expanded](static/MlFlow/MlFlow_Experiments_Expanded_Datasets.png)
+
+## Parameters
+![Experiment Parameters Expanded](static/MlFlow/MlFlow_Experiments_Expanded_Parameters.png)
+
+
+## Metrics
+![Experiment Metricss Expanded](static/MlFlow/MlFlow_Experiments_Expanded_Metrics.png)
+
+## Tags
+![Experiment Tags Expanded](static/MlFlow/MlFlow_Experiments_Expanded_Tags.png)
+
+## Artifacts
+![Experiment Artifacts Expanded](static/MlFlow/MlFlow_Experiments_Expanded_Artifacts.png)
