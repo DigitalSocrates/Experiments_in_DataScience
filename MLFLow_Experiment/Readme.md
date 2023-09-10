@@ -30,20 +30,38 @@ Few important points here
 1. log_models is set to True
         basically we are asking MLflow to log this model as an artifact. Technically its not needed if you have all the parameters and other info captured, but certainly nice-to-have
 1. log_datasets is set to True
-        log dataset information/details (>really helpful)
+        log dataset information/details (> really helpful)
 
 # Experiments 
 
-As i build models and train them, I use MLflow to keep track of parameters, metrics and other useful information thus comes the experiment. 
+As I build models and train them, I use MLflow to keep track of parameters, metrics and other useful information thus comes the experiment. 
 
-As per official documentation ">Each experiment lets you visualize, search, and compare runs, as well as download run artifacts or metadata for analysis in other tools. Experiments are maintained in a ... MLflow tracking server."
+As per official documentation "> Each experiment lets you visualize, search, and compare runs, as well as download run artifacts or metadata for analysis in other tools. Experiments are maintained in a ... MLflow tracking server."
 
 Let us see what it means
 ![Experiments Expanded](static/MLflow/MlFlow_Experiments_Expanded.png)
 
+on this screen you can see 
+1. when each runs took place
+1. status (success/fail)
+1. datasets information
+1. durations
+1. sources (SOME_FILENAME.py)
+1. model infos
+
 
 ## Datasets
 ![Experimen Datasets Expanded](static/MLflow/MlFlow_Experiments_Expanded_Datasets.png)
+
+### Datasets details 
+You can further drill down into each dataset to see what datasets were used for training or evaluation and examine each if required.
+
+Clicking on a dataset will provide you details such as
+1. Purpose - eval/train
+1. Number of rows and elements
+1. Column list and the datatypes
+![Experimen Datasets Details](static/MLflow/MlFlow_Experiments_Expanded_Datasets_Drill.png)
+
 
 ## Parameters
 ![Experiment Parameters Expanded](static/MLflow/MlFlow_Experiments_Expanded_Parameters.png)
