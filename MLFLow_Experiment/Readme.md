@@ -30,8 +30,21 @@ Let us see what I mean
 ## Metrics
 ![Experiment Metrics Expanded](static/MlFlow/MlFlow_Experiments_Expanded_Metrics.png)
 
+
 ## Tags
+
+Are helpful and easy to use for when you want to save some additional metadata 
+```
+# set tags - adding metadata about the model
+tags = {"team": "Engineering Team Name",
+        "dataset": "CCPP model",
+        "release.version": "1.2.3",
+        "inputs": X_train.columns,
+        "target": "PE"}
+```
+
 ![Experiment Tags Expanded](static/MlFlow/MlFlow_Experiments_Expanded_Tags.png)
+
 
 ## Artifacts
 ![Experiment Artifacts Expanded](static/MlFlow/MlFlow_Experiments_Expanded_Artifacts.png)
