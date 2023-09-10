@@ -8,11 +8,11 @@ or
 mlflow server --default-artifact-root ./mlruns --host 127.0.0.0 --port 5000
 
 Should see the following
-![Starting MLflow](static/MLflow/MlFlow_Start_Command.png)
+![Starting MLflow](static/screenshoots/MlFlow_Start_Command.png)
 
 go to http://127.0.0.1:5000 to verify that service is running
 
-![Main Screen](static/MLflow/MlFlow_Experiments.png)
+![Main Screen](static/screenshoots/MlFlow_Experiments.png)
 
 Make sure that you add the following to your code
 ```
@@ -39,7 +39,7 @@ As I build models and train them, I use MLflow to keep track of parameters, metr
 As per official documentation "> Each experiment lets you visualize, search, and compare runs, as well as download run artifacts or metadata for analysis in other tools. Experiments are maintained in a ... MLflow tracking server."
 
 Let us see what it means
-![Experiments Expanded](static/MLflow/MlFlow_Experiments_Expanded.png)
+![Experiments Expanded](static/screenshoots/MlFlow_Experiments_Expanded.png)
 
 on this screen you can see 
 1. when each runs took place
@@ -51,7 +51,7 @@ on this screen you can see
 
 
 ## Datasets
-![Experimen Datasets Expanded](static/MLflow/MlFlow_Experiments_Expanded_Datasets.png)
+![Experimen Datasets Expanded](static/screenshoots/MlFlow_Experiments_Expanded_Datasets.png)
 
 ### Datasets details 
 You can further drill down into each dataset to see what datasets were used for training or evaluation and examine each if required.
@@ -60,15 +60,15 @@ Clicking on a dataset will provide you details such as
 1. Purpose - eval/train
 1. Number of rows and elements
 1. Column list and the datatypes
-![Experimen Datasets Details](static/MLflow/MlFlow_Experiments_Expanded_Datasets_Drill.png)
+![Experimen Datasets Details](static/screenshoots/MlFlow_Experiments_Expanded_Datasets_Drill.png)
 
 
 ## Parameters
-![Experiment Parameters Expanded](static/MLflow/MlFlow_Experiments_Expanded_Parameters.png)
+![Experiment Parameters Expanded](static/screenshoots/MlFlow_Experiments_Expanded_Parameters.png)
 
 
 ## Metrics
-![Experiment Metrics Expanded](static/MLflow/MlFlow_Experiments_Expanded_Metrics.png)
+![Experiment Metrics Expanded](static/screenshoots/MlFlow_Experiments_Expanded_Metrics.png)
 
 
 ## Tags
@@ -83,11 +83,11 @@ tags = {"team": "Engineering Team Name",
         "target": "PE"}
 ```
 
-![Experiment Tags Expanded](static/MLflow/MlFlow_Experiments_Expanded_Tags.png)
+![Experiment Tags Expanded](static/screenshoots/MlFlow_Experiments_Expanded_Tags.png)
 
 
 ## Artifacts
-![Experiment Artifacts Expanded](static/MLflow/MlFlow_Experiments_Expanded_Artifacts.png)]
+![Experiment Artifacts Expanded](static/screenshoots/MlFlow_Experiments_Expanded_Artifacts.png)]
 
 
 ## Model
