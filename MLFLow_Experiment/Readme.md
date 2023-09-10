@@ -12,6 +12,21 @@ and verify that service is running
 
 ![Main Screen](static/MlFlow/MlFlow_Experiments.png)
 
+add the following to your code
+```
+# enable mlflow autologging
+import mlflow
+
+mlflow.set_tracking_uri('http://127.0.0.1:5000')
+mlflow.sklearn.autolog(disable=False,
+                       log_models=True,
+                       log_datasets=True)
+```
+Few important points
+1. mflow is set to autolog for sklearn library - modify if use some other library
+1. log_models is set to True
+1. log_datasets is set to True
+
 # Experiments 
 
 As i build models and train them, i started to use MlFlow to keep track of parameters, metrics and other useful information
@@ -33,7 +48,7 @@ Let us see what I mean
 
 ## Tags
 
-Are helpful and easy to use for when you want to save some additional metadata 
+They are helpful and user-friendly when you want to save additional metadata—essentially allowing you to add and save whatever you believe might be useful for recreating an experiment!
 ```
 # set tags - adding metadata about the model
 tags = {"team": "Engineering Team Name",
