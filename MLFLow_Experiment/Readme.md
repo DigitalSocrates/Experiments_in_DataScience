@@ -7,3 +7,5 @@ mlflow ui
 
 go to http://127.0.0.1:5000
 and verify that service is running
+
+![Main Screen](static/MlFlow/MlFlow_Experiments.png)
