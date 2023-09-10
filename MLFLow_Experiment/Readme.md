@@ -28,7 +28,7 @@ Let us see what I mean
 
 
 ## Metrics
-![Experiment Metricss Expanded](static/MlFlow/MlFlow_Experiments_Expanded_Metrics.png)
+![Experiment Metrics Expanded](static/MlFlow/MlFlow_Experiments_Expanded_Metrics.png)
 
 ## Tags
 ![Experiment Tags Expanded](static/MlFlow/MlFlow_Experiments_Expanded_Tags.png)
