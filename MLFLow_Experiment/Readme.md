@@ -11,6 +11,7 @@ Should see the following
 ![Starting MLflow](static/MLflow/MlFlow_Start_Command.png)
 
 go to http://127.0.0.1:5000 to verify that service is running
+
 ![Main Screen](static/MLflow/MlFlow_Experiments.png)
 
 Make sure that you add the following to your code
@@ -24,9 +25,12 @@ mlflow.sklearn.autolog(disable=False,
                        log_datasets=True)
 ```
 Few important points here
-1. mflow is configured to autolog for the sklearn library; please modify it if you are using a different library. Also, if you include this code line, it will be enabled by default. I have exposed it simply as a reminder.
+1. mflow is configured to autolog for the sklearn library; please modify it if you are using a different library. Also, if you include this code line 
+```mlflow.sklearn.autolog```, logging will be enabled by default. I have exposed it simply as a reminder.
 1. log_models is set to True
+        basically we are asking MLflow to log this model as an artifact. Technically its not needed if you have all the parameters and other info captured, but certainly nice-to-have
 1. log_datasets is set to True
+        log dataset information/details (>really helpful)
 
 # Experiments 
 
