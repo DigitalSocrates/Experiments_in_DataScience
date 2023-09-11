@@ -34,6 +34,10 @@ Few important points here
 1. log_datasets is set to True
         log dataset information/details (> really helpful)
 
+### MLflow limitations
+
+**Major** MLflow does not support tracking usage of system resources like GPU, CPU, and memory. You'd have to add that logic into your application, and persist the data as metrics with log_metric or as a log file with log_artifact.
+
 # Experiments 
 
 As I build models and train them, I use MLflow to keep track of parameters, metrics and other useful information thus comes the experiment. 
@@ -66,10 +70,16 @@ Clicking on a dataset will provide you details such as
 
 
 ## Parameters
+Super helpful to track lots of parameters that you model might be using. 
+
 ![Experiment Parameters Expanded](static/screenshoots/MlFlow_Experiments_Expanded_Parameters.png)
 
 
 ## Metrics
+Note: Might significantly vary depending on your model. 
+
+I have chosen to use well-known metrics, but you can also add custom ones if needed!
+
 ![Experiment Metrics Expanded](static/screenshoots/MlFlow_Experiments_Expanded_Metrics.png)
 
 
