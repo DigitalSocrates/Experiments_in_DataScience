@@ -71,7 +71,7 @@ MLflow allows you to drill down into each dataset to see which datasets were use
 ![Experimen Datasets Details](static/screenshoots/MlFlow_Experiments_Expanded_Datasets_Drill.png)
 
 
-## Parameters
+## Parameters: Tracking Model Settings
 Tracking various parameters your model uses can be super helpful. MLflow makes it easy to monitor and compare parameter settings across runs.
 
 ![Experiment Parameters Expanded](static/screenshoots/MlFlow_Experiments_Expanded_Parameters.png)
