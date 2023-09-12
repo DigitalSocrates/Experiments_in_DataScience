@@ -101,7 +101,7 @@ tags = {"team": "Engineering Team Name",
 
 
 ## Artifacts: Storing Artifacts
-Artifacts are any files or data that your experiment generates. MLflow efficiently manages and stores these artifacts, making it easy to access and share them.
+In the context of data science experiments, artifacts encompass any files or data generated during the course of your project. MLflow adeptly handles the management and storage of these artifacts, simplifying both access and sharing. Moreover, MLflow offers sample code to assist you in this process, adding an invaluable layer of guidance to your workflow.
 ![Experiment Artifacts Expanded](static/screenshoots/MlFlow_Experiments_Expanded_Artifacts.png)]
 
 
