@@ -1,22 +1,26 @@
 # Experiment with training a model using Linear Regression and using MLflow
 
+Data science projects involve a myriad of tasks, from data preprocessing to model training and evaluation. Tracking and managing the experiments in these projects is crucial for maintaining transparency, reproducibility, and effective collaboration within a team. In this article, we'll explore how to experiment with training a machine learning model using Linear Regression and harness the power of MLflow, a versatile open-source platform for managing machine learning lifecycle.
+
 # To install MLflow 
-pip install mlflow
+Before we dive into MLflow, ensure you have it installed. You can do this via pip:
+
+```pip install mlflow```
 
 # To start MLflow server
-In the terminal window run the following command to start server locally
+To start the MLflow server locally, open your terminal and execute either of the following commands:
 mlflow ui
-or
+Or, if you prefer specifying additional configuration options:
 mlflow server --default-artifact-root ./mlruns --host 127.0.0.0 --port 5000
 
-Should see the following
+You should see a confirmation message similar to the following:
 ![Starting MLflow](static/screenshoots/MlFlow_Start_Command.png)
 
 go to http://127.0.0.1:5000 to verify that service is running
 
 ![Main Screen](static/screenshoots/MlFlow_Experiments.png)
 
-Make sure that you add the following to your code
+Don't forget to add the following code to your Python script to enable MLflow autologging:
 ```
 # enable mlflow autologging
 import mlflow
@@ -26,8 +30,9 @@ mlflow.sklearn.autolog(disable=False,
                        log_models=True,
                        log_datasets=True)
 ```
-Few important points here
-1. mflow is configured to autolog for the sklearn library; please modify it if you are using a different library. Also, if you include this code line 
+Here's a breakdown of the important settings:
+
+1. MLflow is configured to autolog for the sklearn library. Modify it if you are using a different library. Also, if you include this code line 
 ```mlflow.sklearn.autolog```, logging will be enabled by default. I have exposed it simply as a reminder.
 1. log_models is set to True
         basically we are asking MLflow to log this model as an artifact. Technically its not needed if you have all the parameters and other info captured, but certainly nice-to-have
@@ -36,18 +41,16 @@ Few important points here
 
 ### MLflow limitations
 
-**Major** MLflow does not support tracking usage of system resources like GPU, CPU, and memory. You'd have to add that logic into your application, and persist the data as metrics with log_metric or as a log file with log_artifact.
+**Major** It's important to note that MLflow has limitations, including the lack of built-in support for tracking system resource usage (e.g., GPU, CPU, memory). If you need to monitor these resources, you'll need to implement custom logic in your application and persist the data as metrics using log_metric or as log files using log_artifact
 
-# Experiments 
+# Experiments: Tracking Progress and Results
 
-As I build models and train them, I use MLflow to keep track of parameters, metrics and other useful information thus comes the experiment. 
-
-As per official documentation "> Each experiment lets you visualize, search, and compare runs, as well as download run artifacts or metadata for analysis in other tools. Experiments are maintained in a ... MLflow tracking server."
+As you build and train models, MLflow helps you keep track of parameters, metrics, and other vital information through experiments. Each experiment allows you to visualize, search, and compare runs, as well as download run artifacts or metadata for analysis in other tools.
 
 Let us see what it means
 ![Experiments Expanded](static/screenshoots/MlFlow_Experiments_Expanded.png)
 
-on this screen you can see 
+On the experiments screen, you can see:
 1. when each runs took place
 1. status (success/fail)
 1. datasets information
@@ -56,36 +59,35 @@ on this screen you can see
 1. model infos
 
 
-## Datasets
+## Datasets: A Closer Look
 ![Experimen Datasets Expanded](static/screenshoots/MlFlow_Experiments_Expanded_Datasets.png)
 
-### Datasets details 
-You can further drill down into each dataset to see what datasets were used for training or evaluation and examine each if required.
+MLflow allows you to drill down into each dataset to see which datasets were used for training or evaluation. This detailed view provides information such as:
 
-Clicking on a dataset will provide you details such as
-1. Purpose - eval/train
-1. Number of rows and elements
-1. Column list and the datatypes
+1. Purpose (e.g., eval/train).
+1. Number of rows and elements.
+1. Column list and data types.
+
 ![Experimen Datasets Details](static/screenshoots/MlFlow_Experiments_Expanded_Datasets_Drill.png)
 
 
 ## Parameters
-Super helpful to track lots of parameters that you model might be using. 
+Tracking various parameters your model uses can be super helpful. MLflow makes it easy to monitor and compare parameter settings across runs.
 
 ![Experiment Parameters Expanded](static/screenshoots/MlFlow_Experiments_Expanded_Parameters.png)
 
 
-## Metrics
-Note: Might significantly vary depending on your model. 
+## Metrics: Evaluating Model Performance
+The choice of metrics depends on your model, but MLflow supports a wide range of them. You can also add custom metrics if needed.
 
 I have chosen to use well-known metrics, but you can also add custom ones if needed!
 
 ![Experiment Metrics Expanded](static/screenshoots/MlFlow_Experiments_Expanded_Metrics.png)
 
 
-## Tags
+## Tags: Adding Metadata
 
-They are helpful and user-friendly when you want to save additional metadata—essentially allowing you to add and save whatever you believe might be useful for recreating an experiment!
+Tags are user-friendly metadata that you can add to experiments. They help you save additional information that might be useful for recreating an experiment.
 ```
 # set tags - adding metadata about the model
 tags = {"team": "Engineering Team Name",
@@ -98,10 +100,12 @@ tags = {"team": "Engineering Team Name",
 ![Experiment Tags Expanded](static/screenshoots/MlFlow_Experiments_Expanded_Tags.png)
 
 
-## Artifacts
+## Artifacts: Storing Artifacts
+Artifacts are any files or data that your experiment generates. MLflow efficiently manages and stores these artifacts, making it easy to access and share them.
 ![Experiment Artifacts Expanded](static/screenshoots/MlFlow_Experiments_Expanded_Artifacts.png)]
 
 
-## Model
+## Model: Packaging Machine Learning Models
+In MLflow, an MLflow Model is a standardized format for packaging machine learning models. It can be used in a variety of downstream tools and environments.
 
-Per official documentation ">An MLflow Model is a standard format for packaging machine learning models that can be used in a variety of downstream tools"
+By embracing MLflow in your data science projects, you can streamline your experimentation process, maintain a clear record of your work, and collaborate seamlessly with your team. Experimentation in data science becomes more efficient, organized, and reproducible with MLflow, ultimately helping you achieve better results and insights.
