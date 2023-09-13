@@ -8,6 +8,6 @@ Basically collection of experimental scripts to learn each concept
 
 1. MLflow (see MLFlow experiments)
     1. article publised on linkedin https://www.linkedin.com/pulse/leveraging-mlflow-efficient-experimentation-data-science-shmigol
-1. Huggingfaces
-1. FastAPI
+1. Huggingfaces - WIP
+1. FastAPI - WIP
 1. Clustering - WIP
