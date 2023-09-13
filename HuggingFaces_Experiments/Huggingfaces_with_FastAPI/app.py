@@ -7,15 +7,16 @@ from fastapi.responses import JSONResponse
 from transformers import AutoTokenizer
 import transformers
 import torch
-#from sqlalchemy import create_engine
-#from sqlalchemy.orm import sessionmaker
-#from settings import DATABASE_URL
+
+# from sqlalchemy import create_engine
+# from sqlalchemy.orm import sessionmaker
+# from settings import DATABASE_URL
 
 from src.v1.sentiment_analysis import SentimentAnalysis
 from src.v1.text_generator import TextGenerator
 
-#engine = create_engine(DATABASE_URL)
-#Session = sessionmaker(bind=engine)
+# engine = create_engine(DATABASE_URL)
+# Session = sessionmaker(bind=engine)
 
 
 # initialize app
@@ -40,10 +41,9 @@ text_generator = TextGenerator()
 async def root():
     """default message to be displayed - could include version id, etc."""
     return JSONResponse(
-            status_code=200,
-            content={"status_code": 200,
-                     "message": "Sample ML OPs API is online"},
-        )
+        status_code=200,
+        content={"status_code": 200, "message": "Sample ML OPs API is online"},
+    )
 
 
 @app.get("/sentiment_details")
@@ -53,11 +53,13 @@ async def sentiment_details():
     try:
         return JSONResponse(
             status_code=200,
-            content={"status_code": 200,
-                     "message": f"{sentiment_analysis.sentiment_model.device}"},
+            content={
+                "status_code": 200,
+                "message": f"{sentiment_analysis.sentiment_model.device}",
+            },
         )
     except Exception as ex:
-        logger.error('Exception occured %s', ex)
+        logger.error("Exception occured %s", ex)
         return get_default_error_response()
 
 
@@ -67,27 +69,28 @@ async def read_item(sentiment: str, q: str | None = None) -> dict:
     try:
         return JSONResponse(
             status_code=200,
-            content={"status_code": 200,
-                     "message": f"{sentiment_analysis.process_sentiment(sentiment)}"},
+            content={
+                "status_code": 200,
+                "message": f"{sentiment_analysis.process_sentiment(sentiment)}",
+            },
         )
     except Exception as ex:
-        logger.error('Exception occured %s', ex)
+        logger.error("Exception occured %s", ex)
         return get_default_error_response(status_code=500)
 
 
 @app.get("/text_generation/{text}", response_model=None)
 async def generate_text(text: str) -> dict:
-    """ takes user provided value and generates text """
+    """takes user provided value and generates text"""
     try:
         # generate prediction
         result = text_generator.generate_text(text)
         return JSONResponse(
             status_code=200,
-            content={"status_code": 200,
-                    "message": f"{result}"},
+            content={"status_code": 200, "message": f"{result}"},
         )
     except Exception as ex:
-        logger.error('Exception occured %s', ex)
+        logger.error("Exception occured %s", ex)
         return get_default_error_response(status_code=500)
 
 
@@ -120,7 +123,7 @@ async def generate_code(function_body: str):
         result = {"response": f"{generated_code}", "code": 200}
         return result
     except Exception as ex:
-        logger.error('Exception occured %s', ex)
+        logger.error("Exception occured %s", ex)
         return get_default_error_response(status_code=500)
 
 
@@ -132,7 +135,7 @@ def generate(payload: TextIn):
 
 
 def get_default_error_response(status_code=500, message="Internal Server Error"):
-    """ default error message template """
+    """default error message template"""
     return JSONResponse(
         status_code=status_code,
         content={"status_code": status_code, "message": message},

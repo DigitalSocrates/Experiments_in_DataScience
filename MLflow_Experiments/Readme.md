@@ -59,6 +59,9 @@ On the experiments screen, you can see:
 1. model infos
 
 
+Note: When you run MLflow, it will generate artifacts and store them in the /mlruns folder. We strongly recommend updating your .gitignore or .dockerignore files to properly exclude this folder from version control or containerization, as it can quickly accumulate large files and disrupt your project's organization.
+
+
 ## Datasets: A Closer Look
 ![Experimen Datasets Expanded](static/screenshoots/MlFlow_Experiments_Expanded_Datasets.png)
 
