@@ -11,3 +11,4 @@ Basically collection of experimental scripts to learn each concept
 1. Huggingfaces - WIP
 1. FastAPI - WIP
 1. Clustering - WIP
+1. Data Quality - WIP
