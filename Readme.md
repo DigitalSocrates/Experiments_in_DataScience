@@ -11,4 +11,6 @@ Basically collection of experimental scripts to learn each concept
 1. Huggingfaces - WIP
 1. FastAPI - WIP
 1. Clustering - WIP
-1. Data Quality - WIP
+1. Data Quality
+    1. Post on linkedin https://www.linkedin.com/posts/gshmigol_dataquality-dataanalysis-dataintegrity-activity-7108126418655485953-o58b?utm_source=share&utm_medium=member_desktop
+
