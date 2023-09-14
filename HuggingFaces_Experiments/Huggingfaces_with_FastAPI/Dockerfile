@@ -1,5 +1,5 @@
 # set base image
-FROM python:3.8.10-slim
+FROM python:3.10.8-slim
 
 # author
 author='Grigoriy Shmigol'
