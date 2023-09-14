@@ -58,7 +58,6 @@ On the experiments screen, you can see:
 1. sources (SOME_FILENAME.py)
 1. model infos
 
-
 Note: When you run MLflow, it will generate artifacts and store them in the /mlruns folder. We strongly recommend updating your .gitignore or .dockerignore files to properly exclude this folder from version control or containerization, as it can quickly accumulate large files and disrupt your project's organization.
 
 
@@ -86,6 +85,13 @@ The choice of metrics depends on your model, but MLflow supports a wide range of
 I have chosen to use well-known metrics, but you can also add custom ones if needed!
 
 ![Experiment Metrics Expanded](static/screenshoots/MlFlow_Experiments_Expanded_Metrics.png)
+
+
+### Helpful Comparison charts 
+
+We can see here the comparison for the last 4 runs 
+
+![Experiment Metrics Expanded](static/screenshoots/MlFlow_Experiments_Comparison.png)
 
 
 ## Tags: Adding Metadata
