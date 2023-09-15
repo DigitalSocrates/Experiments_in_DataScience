@@ -6,9 +6,10 @@ from datetime import datetime
 from bs4 import BeautifulSoup
 from src.game import Game
 
-def scrape_lottery_data(year : int, file_path : str, date_format : str):
+def scrape_lottery_data(year : int, file_path : str, date_format : str, save_as : str = 'parquet'):
     """ scrape lottery web site by year
         store each years data in a separate file 
+        default format is parquet otherwise the dataset will be saved in csv format
     """
     # instantiate game object
     game = Game()
@@ -38,8 +39,12 @@ def scrape_lottery_data(year : int, file_path : str, date_format : str):
         # add game results to dataframe
         games_df = pd.concat([games_df, pd.DataFrame.from_records([game.get_df_row()])])
 
-    # Save the DataFrame as a Parquet file
-    games_df.to_parquet(f"{file_path}powerball_{year}.parquet", index=False)
+    # check the format to save the data as 
+    if save_as == "parquet":
+        # Save the DataFrame as a Parquet file
+        games_df.to_parquet(f"{file_path}powerball_{year}.parquet", index=False)
+    else:
+        games_df.to_csv(f"{file_path}powerball_{year}.csv", index=False)
 
 
 def read_all_parquet_files(directory : str):
@@ -64,3 +69,7 @@ def read_all_parquet_files(directory : str):
         return pd.concat(dfs, ignore_index=True)
     else:
         return None
+
+
+if __name__ == '__main__':
+    scrape_lottery_data(year=2023, file_path='./', date_format='%a, %b %d, %Y', save_as='csv')
