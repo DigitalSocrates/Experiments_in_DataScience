@@ -27,21 +27,21 @@ class Game:
     def set_numbers (self, lis):
         """ set all numbers from a provided list """
         position = 1
-        for li in lis:
+        for li_cell in lis:
             if self.debug:
-                print(li)
+                print(li_cell)
             if position == 1:
-                self.set_first_ball(li.text.strip())
+                self.set_first_ball(li_cell.text.strip())
             elif position == 2:
-                self.set_second_ball(li.text.strip())
+                self.set_second_ball(li_cell.text.strip())
             elif position == 3:
-                self.set_third_ball(li.text.strip())
+                self.set_third_ball(li_cell.text.strip())
             elif position == 4:
-                self.set_forth_ball(li.text.strip())
+                self.set_forth_ball(li_cell.text.strip())
             elif position == 5:
-                self.set_fifth_ball(li.text.strip())
+                self.set_fifth_ball(li_cell.text.strip())
             elif position == 6:
-                self.set_power_ball(li.text.strip())
+                self.set_power_ball(li_cell.text.strip())
             position += 1
 
 
@@ -61,9 +61,9 @@ class Game:
         self.third_ball = ball
 
 
-    def set_forth_ball(self, ball : int):
+    def set_fourth_ball(self, ball : int):
         """ set fourth ball """
-        self.forth_ball = ball
+        self.fourth_ball = ball
 
 
     def set_fifth_ball(self, ball : int):
@@ -82,7 +82,7 @@ class Game:
                {self.first_ball},\
                {self.second_ball},\
                {self.third_ball},\
-               {self.forth_ball},\
+               {self.fourth_ball},\
                {self.fifth_ball},\
                {self.power_ball}")
 
@@ -93,7 +93,7 @@ class Game:
                 'Ball_1': self.first_ball,
                 'Ball_2': self.second_ball,
                 'Ball_3': self.third_ball,
-                'Ball_4': self.forth_ball,
+                'Ball_4': self.fourth_ball,
                 'Ball_5': self.fifth_ball,
                 'Ball_Bonus': self.power_ball,
                 }

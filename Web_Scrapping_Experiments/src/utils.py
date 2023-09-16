@@ -46,7 +46,7 @@ def scrape_lottery_data(year : int, file_path : str, date_format : str, save_as 
         # add game results to dataframe
         games_df = pd.concat([games_df, pd.DataFrame.from_records([game.get_df_row()])])
 
-    # check the format to save the data as 
+    # check the format to save the data as
     if save_as == "parquet":
         # Save the DataFrame as a Parquet file
         games_df.to_parquet(f"{file_path}powerball_{year}.parquet", index=False)
