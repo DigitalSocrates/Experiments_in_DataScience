@@ -13,7 +13,8 @@ def calculate_decimal_point (value : float) -> int :
         decimal_points = str(value).split('.')[1]
         dec_length = len(decimal_points)
     except Exception as ex:
-        print(f'was not able to get a decimal value from {value}')
+        print(f'Was not able to get a decimal value from {value} with the following error {ex}')
+
     return dec_length
 
 

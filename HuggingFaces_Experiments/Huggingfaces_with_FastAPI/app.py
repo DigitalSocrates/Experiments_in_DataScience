@@ -1,4 +1,4 @@
-""" main application """
+""" FASTAPi app """
 import logging
 import uvicorn
 from pydantic import BaseModel
