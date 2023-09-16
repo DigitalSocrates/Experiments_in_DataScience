@@ -1,3 +1,5 @@
 mlruns/
 .venv
 mlartifacts/
+__pycache__/
+*.pyc

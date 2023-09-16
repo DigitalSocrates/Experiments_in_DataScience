@@ -2,6 +2,7 @@
 import os
 import requests
 import pandas as pd
+from itertools import permutations
 from datetime import datetime
 from bs4 import BeautifulSoup
 from src.game import Game
@@ -69,6 +70,16 @@ def read_all_parquet_files(directory : str):
         return pd.concat(dfs, ignore_index=True)
     else:
         return None
+
+
+def generate_value_permutations(values = ('p', 'q', 'd')):
+    """ generate all permutations based on your input """
+    # Generate all permutations
+    permuted_values = permutations(values)
+
+    # Iterate through and print the permutations in the desired format
+    for perm in permuted_values:
+        print(f'({", ".join(perm)})')
 
 
 if __name__ == '__main__':
