@@ -12,11 +12,14 @@ class TextGenerator:
     text_generation_model = None
 
     def __init__(self, max_length: int=2096):
-        # instantiate text generation model
-        self.text_generation_model = tg.TextGenerationModel.instance(max_length=max_length)
+        """ instantiate text generation model """
+        self.text_generation_model = tg.TextGenerationModel.instance(
+            max_length=max_length)
 
     def generate_text(self, statement: str):
         """ get sentiment from a user specified string """
         # get output
-        model_ouput = self.text_generation_model.text_generation_pipeline.predict(statement)
+        model_ouput = self.text_generation_model\
+        .text_generation_pipeline.predict(
+            statement)
         return model_ouput

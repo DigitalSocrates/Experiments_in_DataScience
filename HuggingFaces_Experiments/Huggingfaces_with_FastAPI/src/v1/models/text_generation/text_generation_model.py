@@ -41,9 +41,7 @@ class TextGenerationModel(mlflow.pyfunc.PythonModel):
                                                     temperature=0.9,
                                                     do_sample=True,
                                                     max_length=max_length,
-                                                    #num_beams=5,
                                                     top_k = 50)
-            #, device=device)
         return cls
 
     @classmethod

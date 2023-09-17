@@ -18,7 +18,7 @@ class SentimentModel:
         """ initialize sentiment model """
         if cls.sentiment_pipeline is None:
             logger.info('Creating new instance')
-            #cls.sentiment_pipeline = cls.__new__(cls)
+            # cls.sentiment_pipeline = cls.__new__(cls)
             cls.sentiment_pipeline = pipeline("sentiment-analysis",
                                               model=model)
         # oracle = pipeline("question-answering",

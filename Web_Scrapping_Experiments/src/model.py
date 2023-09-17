@@ -1,7 +1,8 @@
 """ convinience class for keeping track of model and its metadata """
 
+
 class Model:
-    """ model class used to keep track of the model we have 
+    """ model class used to keep track of the model we have
     selected and some additional parameters """
     def __init__(self):
         self.name = None
