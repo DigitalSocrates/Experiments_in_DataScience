@@ -6,11 +6,16 @@ test:
 	# python -m pytest -vv --cov=main --cov=mylib test_*.py
 
 format:	
-	black *.py 
+	black *.py
+
+codestyle:
+	pycodestyle $(PROJECT)
+
+docstyle:
+	pydocstyle $(PROJECT)
 
 lint:
-	pylint --disable=R,C --ignore-patterns=test_.*?py
-	# *.py mylib/*.py
+	pylint $(PROJECT)
 
 container-lint:
 	docker run --rm -i hadolint/hadolint < Dockerfile
