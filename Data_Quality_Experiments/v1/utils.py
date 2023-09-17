@@ -1,7 +1,7 @@
 """ collection of utils """
 
 
-def calculate_decimal_point(value:float) -> int :
+def calculate_decimal_point(value: float) -> int:
     """ spit the number passed as a string
         get decimal points and calculate length
         return 0 if no decimal is available

@@ -20,13 +20,11 @@ class TextGenerationModel(mlflow.pyfunc.PythonModel):
     tokenizer = None
     model = None
 
-
     def __init__(self):
         raise RuntimeError('Call instance() instead')
 
-
     @classmethod
-    def instance(cls, model_name:str = "EleutherAI/gpt-neo-2.7B", max_length:int = 2096):
+    def instance(cls, model_name: str ="EleutherAI/gpt-neo-2.7B", max_length: int =2096):
         """ initialize text generation pipeline """
         if cls.model is None:
             logger.info('Creating new instance')
@@ -48,7 +46,6 @@ class TextGenerationModel(mlflow.pyfunc.PythonModel):
             #, device=device)
         return cls
 
-
     @classmethod
     def use_fillmask(cls):
         """ define fill mask - designed for text generation tasks """
@@ -61,7 +58,6 @@ class TextGenerationModel(mlflow.pyfunc.PythonModel):
         print(cls.fill_mask(f"Hugging Face's DistilBert is a \
                             {cls.tokenizer.mask_token} model."))
         #return cls.fill_mask
-
 
     @classmethod
     def get_generation_config(cls) -> GenerationConfig:
