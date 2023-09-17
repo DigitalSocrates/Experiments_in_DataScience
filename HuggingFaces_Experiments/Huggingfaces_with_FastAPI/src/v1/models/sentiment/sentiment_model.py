@@ -21,7 +21,7 @@ class SentimentModel:
             #cls.sentiment_pipeline = cls.__new__(cls)
             cls.sentiment_pipeline = pipeline("sentiment-analysis",
                                               model=model)
-        #oracle = pipeline("question-answering",
+        # oracle = pipeline("question-answering",
         # model="distilbert-base-cased-distilled-squad",
         # tokenizer="bert-base-cased")
         return cls.sentiment_pipeline

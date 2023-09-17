@@ -6,7 +6,6 @@ class Game:
     """ contans date of the game and all the balls """
     debug = False
 
-
     def __init__(self):
         self.game_date: None
         self.first_ball: None
@@ -16,13 +15,11 @@ class Game:
         self.fifth_ball: None
         self.power_ball: None
 
-
     def set_game_date (self, game_date):
         """ set game date """
         if self.debug:
             print(game_date)
         self.game_date = game_date
-
 
     def set_numbers (self, lis):
         """ set all numbers from a provided list """
@@ -44,37 +41,30 @@ class Game:
                 self.set_power_ball(li_cell.text.strip())
             position += 1
 
-
     # Setter methods
-    def set_first_ball(self, ball : int):
+    def set_first_ball(self, ball: int):
         """ set first ball """
         self.first_ball = ball
 
-
-    def set_second_ball(self, ball : int):
+    def set_second_ball(self, ball: int):
         """ set second ball """
         self.second_ball = ball
 
-
-    def set_third_ball(self, ball : int):
+    def set_third_ball(self, ball: int):
         """ set third ball """
         self.third_ball = ball
 
-
-    def set_fourth_ball(self, ball : int):
+    def set_fourth_ball(self, ball: int):
         """ set fourth ball """
         self.fourth_ball = ball
 
-
-    def set_fifth_ball(self, ball : int):
+    def set_fifth_ball(self, ball: int):
         """ set fifth ball """
         self.fifth_ball = ball
 
-
-    def set_power_ball(self, ball : int):
+    def set_power_ball(self, ball: int):
         """ set power ball """
         self.power_ball = ball
-
 
     def get_game_stats (self):
         """ print game statistics """
@@ -86,7 +76,6 @@ class Game:
                {self.fifth_ball},\
                {self.power_ball}")
 
-
     def get_df_row(self):
         """ create a row for the dataframe """
         new_row = {'Date': self.game_date,
@@ -97,9 +86,7 @@ class Game:
                 'Ball_5': self.fifth_ball,
                 'Ball_Bonus': self.power_ball,
                 }
-
         return new_row
-
 
     def get_game_dataframe (self) -> pd.DataFrame:
         """ get game dataframe """
@@ -114,5 +101,4 @@ class Game:
             ('Ball_Bonus',numpy.float64),
             ]
         )
-
         return pd.DataFrame(numpy.empty(0, dtype=dtypes))
