@@ -2,6 +2,7 @@
 import pandas as pd
 import numpy
 
+
 class Game:
     """ contans date of the game and all the balls """
     debug = False
@@ -15,13 +16,13 @@ class Game:
         self.fifth_ball: None
         self.power_ball: None
 
-    def set_game_date (self, game_date):
+    def set_game_date(self, game_date):
         """ set game date """
         if self.debug:
             print(game_date)
         self.game_date = game_date
 
-    def set_numbers (self, lis):
+    def set_numbers(self, lis):
         """ set all numbers from a provided list """
         position = 1
         for li_cell in lis:
@@ -66,7 +67,7 @@ class Game:
         """ set power ball """
         self.power_ball = ball
 
-    def get_game_stats (self):
+    def get_game_stats(self):
         """ print game statistics """
         print (f"{self.game_date},\
                {self.first_ball},\
@@ -79,16 +80,16 @@ class Game:
     def get_df_row(self):
         """ create a row for the dataframe """
         new_row = {'Date': self.game_date,
-                'Ball_1': self.first_ball,
-                'Ball_2': self.second_ball,
-                'Ball_3': self.third_ball,
-                'Ball_4': self.fourth_ball,
-                'Ball_5': self.fifth_ball,
-                'Ball_Bonus': self.power_ball,
-                }
+                   'Ball_1': self.first_ball,
+                   'Ball_2': self.second_ball,
+                   'Ball_3': self.third_ball,
+                   'Ball_4': self.fourth_ball,
+                   'Ball_5': self.fifth_ball,
+                   'Ball_Bonus': self.power_ball,
+                   }
         return new_row
 
-    def get_game_dataframe (self) -> pd.DataFrame:
+    def get_game_dataframe(self) -> pd.DataFrame:
         """ get game dataframe """
         dtypes = numpy.dtype(
         [
