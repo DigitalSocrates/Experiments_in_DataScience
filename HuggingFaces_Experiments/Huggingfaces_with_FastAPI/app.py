@@ -20,7 +20,9 @@ from src.v1.text_generator import TextGenerator
 
 
 # initialize app
-app = FastAPI(title="Sample ML OPs App", docs_url="/docs", version="0.0.1", debug=True)
+app = FastAPI(title="Sample ML OPs App",
+              docs_url="/docs", version="0.0.1",
+              debug=True)
 
 
 # Create a custom logger
@@ -71,7 +73,7 @@ async def read_item(sentiment: str, q: str | None = None) -> dict:
             status_code=200,
             content={
                 "status_code": 200,
-                "message": f"{sentiment_analysis.process_sentiment(sentiment)}",
+                "msg": f"{sentiment_analysis.process_sentiment(sentiment)}",
             },
         )
     except Exception as ex:
@@ -119,7 +121,7 @@ async def generate_code(function_body: str):
     try:
         generated_code = ""
         for seq in sequences:
-            generated_code = generated_code + f"Result: {seq['generated_text']}"
+            generated_code = generated_code + f"Res: {seq['generated_text']}"
         result = {"response": f"{generated_code}", "code": 200}
         return result
     except Exception as ex:
@@ -134,7 +136,8 @@ def generate(payload: TextIn):
     return {"result": result}
 
 
-def get_default_error_response(status_code=500, message="Internal Server Error"):
+def get_default_error_response(status_code=500,
+                               message="Internal Server Error"):
     """default error message template"""
     return JSONResponse(
         status_code=status_code,
