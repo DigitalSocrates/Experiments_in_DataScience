@@ -26,7 +26,6 @@ def scrape_lottery_data(year: int, file_path: str,
     url = "https://www.walottery.com/WinningNumbers/PastDrawings.aspx?" +\
         f"gamename=powerball&unittype=year&unitcount={year}"
 
-
     # Send an HTTP GET request
     try:
         response = requests.get(url, timeout=60) # will wait for 60 seconds
@@ -56,9 +55,11 @@ def scrape_lottery_data(year: int, file_path: str,
     # check the format to save the data as
     if save_as == "parquet":
         # Save the DataFrame as a Parquet file
-        games_df.to_parquet(f"{file_path}powerball_{year}.parquet", index=False)
+        games_df.to_parquet(f"{file_path}powerball_{year}.parquet",
+                            index=False)
     else:
         games_df.to_csv(f"{file_path}powerball_{year}.csv", index=False)
+
 
 def read_all_parquet_files(directory: str):
     """ combine all parquet files """
@@ -66,7 +67,8 @@ def read_all_parquet_files(directory: str):
         print(f"Directory '{directory}' does not exist.")
         return None
 
-    parquet_files = [file for file in os.listdir(directory) if file.endswith(".parquet")]
+    parquet_files = [file for file in os.listdir(directory)
+                     if file.endswith(".parquet")]
 
     if not parquet_files:
         print(f"No .parquet files found in directory '{directory}'.")

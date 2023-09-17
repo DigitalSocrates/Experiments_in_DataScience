@@ -69,7 +69,7 @@ class Game:
 
     def get_game_stats(self):
         """ print game statistics """
-        print (f"{self.game_date},\
+        print(f"{self.game_date},\
                {self.first_ball},\
                {self.second_ball},\
                {self.third_ball},\
@@ -92,14 +92,14 @@ class Game:
     def get_game_dataframe(self) -> pd.DataFrame:
         """ get game dataframe """
         dtypes = numpy.dtype(
-        [
-            ('Date', 'datetime64[ns]'),
-            ('Ball_1', numpy.float64),
-            ('Ball_2', numpy.float64),
-            ('Ball_3', numpy.float64),
-            ('Ball_4', numpy.float64),
-            ('Ball_5', numpy.float64),
-            ('Ball_Bonus', numpy.float64),
-            ]
-        )
+            [
+                ('Date', 'datetime64[ns]'),
+                ('Ball_1', numpy.float64),
+                ('Ball_2', numpy.float64),
+                ('Ball_3', numpy.float64),
+                ('Ball_4', numpy.float64),
+                ('Ball_5', numpy.float64),
+                ('Ball_Bonus', numpy.float64),
+                ]
+                )
         return pd.DataFrame(numpy.empty(0, dtype=dtypes))

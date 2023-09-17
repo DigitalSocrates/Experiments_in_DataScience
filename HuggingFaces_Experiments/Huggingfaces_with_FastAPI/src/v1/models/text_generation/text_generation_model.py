@@ -24,7 +24,8 @@ class TextGenerationModel(mlflow.pyfunc.PythonModel):
         raise RuntimeError('Call instance() instead')
 
     @classmethod
-    def instance(cls, model_name: str ="EleutherAI/gpt-neo-2.7B", max_length: int =2096):
+    def instance(cls, model_name: str = "EleutherAI/gpt-neo-2.7B",
+                 max_length: int = 2096):
         """ initialize text generation pipeline """
         if cls.model is None:
             logger.info('Creating new instance')

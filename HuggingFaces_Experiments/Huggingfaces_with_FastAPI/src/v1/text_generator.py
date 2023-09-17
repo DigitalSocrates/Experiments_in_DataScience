@@ -11,7 +11,7 @@ class TextGenerator:
     """ text generation using transformers pipeline """
     text_generation_model = None
 
-    def __init__(self, max_length: int=2096):
+    def __init__(self, max_length: int = 2096):
         """ instantiate text generation model """
         self.text_generation_model = tg.TextGenerationModel.instance(
             max_length=max_length)
@@ -20,6 +20,6 @@ class TextGenerator:
         """ get sentiment from a user specified string """
         # get output
         model_ouput = self.text_generation_model\
-        .text_generation_pipeline.predict(
-            statement)
+            .text_generation_pipeline.predict(
+                statement)
         return model_ouput
