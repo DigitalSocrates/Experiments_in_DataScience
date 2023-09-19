@@ -27,6 +27,7 @@ def scrape_lottery_data(year: int, file_path: str,
     url = "https://www.walottery.com/WinningNumbers/PastDrawings.aspx?" +\
         f"gamename=powerball&unittype=year&unitcount={year}"
 
+
     # Send an HTTP GET request
     try:
         response = requests.get(url, timeout=60) # will wait for 60 seconds

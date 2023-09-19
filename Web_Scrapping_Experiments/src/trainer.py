@@ -2,7 +2,6 @@
 import numpy as np
 from pmdarima import auto_arima
 from statsmodels.tsa.arima.model import ARIMA
-from statsmodels.tsa.arima_model import ARMAResults
 from sklearn.metrics import mean_squared_error
 
 
@@ -10,9 +9,9 @@ class Trainer:
     """ model trainer main class """
     # Define the range of hyperparameters to search
     SESONAL_LIST = {True, False}
-    SCORING_LIST = {'mse','mae'}
-    METHOD_LIST = {'statespace','innovations_mle','hannan_rissanen',} # for ball 3, 4, and bonus -> 'innovations','burg','yule_walker'
-    COV_LIST = {'opg','oim','approx','robust','robust_approx','none'}
+    SCORING_LIST = {'mse', 'mae'}
+    METHOD_LIST = {'statespace', 'innovations_mle', 'hannan_rissanen'}
+    COV_LIST = {'opg', 'oim', 'approx', 'robust', 'robust_approx', 'none'}
 
     def __init__(self, suppress_warnings: bool = True,
                  trace: bool = True,
@@ -37,14 +36,14 @@ class Trainer:
             for score in self.SCORING_LIST:
                 for season in self.SESONAL_LIST:
                     model = auto_arima(ts_data,
-                                    trace=self.trace,
-                                    error_action=self.error_action,
-                                    max_order=order,
-                                    suppress_warnings=self.suppress_warnings,
-                                    stepwise=True,
-                                    scoring=score,
-                                    seasonal=season,
-                                    maxiter=self.maxiter)
+                                       trace=self.trace,
+                                       error_action=self.error_action,
+                                       max_order=order,
+                                       suppress_warnings=self.suppress_warnings,
+                                       stepwise=True,
+                                       scoring=score,
+                                       seasonal=season,
+                                       maxiter=self.maxiter)
 
                     if best_model is None:
                         # Get the best ARIMA order and model
@@ -52,8 +51,8 @@ class Trainer:
                         best_model = model
                     else:
                         best_model = self.compare_two_models(model1=model,
-                                                            model2=best_model,
-                                                            size=len(ts_data))
+                                                             model2=best_model,
+                                                             size=len(ts_data))
                         best_order = best_model.order
 
         return best_order, best_model
@@ -75,11 +74,14 @@ class Trainer:
                     continue
                 else:
                     model_fit = arima_model.fit(method=method, cov_type=cov_type)
-                    y_pred = model_fit.predict(n_periods=1, exog=None, return_conf_int=True)
+                    y_pred = model_fit.predict(n_periods=1,
+                                               exog=None,
+                                               return_conf_int=True)
 
                     mse = self.calculate_mse(ts_data=ts_data, y_pred=y_pred)
                     if mse < best_mse:
-                        print(f'fitting using method:{method} and cov_type:{cov_type} with mse {mse}')
+                        print(f'Fit using method:{method} \
+                              and cov_type:{cov_type} with mse {mse}')
                         best_mse = mse
                         final_model = arima_model
                         final_model_fit = model_fit
@@ -135,4 +137,4 @@ class Trainer:
                 else:
                     best_model = model2
                     best_criteria = "BIC"
-        return best_model
+        return best_model, best_criteria
