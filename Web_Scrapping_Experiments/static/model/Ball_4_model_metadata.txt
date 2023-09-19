@@ -1,0 +1,23 @@
+                               SARIMAX Results                                
+==============================================================================
+Dep. Variable:                 Ball_4   No. Observations:                  599
+Model:                          ARIMA   Log Likelihood               -2336.984
+Date:                Tue, 19 Sep 2023   AIC                           4677.968
+Time:                        14:29:00   BIC                           4686.759
+Sample:                             0   HQIC                          4681.390
+                                - 599                                         
+Covariance Type:        robust_approx                                         
+==============================================================================
+                 coef    std err          z      P>|z|      [0.025      0.975]
+------------------------------------------------------------------------------
+const         47.1402      0.489     96.372      0.000      46.182      48.099
+sigma2       143.3192      7.597     18.866      0.000     128.430     158.208
+===================================================================================
+Ljung-Box (L1) (Q):                   1.03   Jarque-Bera (JB):                24.83
+Prob(Q):                              0.31   Prob(JB):                         0.00
+Heteroskedasticity (H):               1.06   Skew:                            -0.47
+Prob(H) (two-sided):                  0.71   Kurtosis:                         2.68
+===================================================================================
+
+Warnings:
+[1] Quasi-maximum likelihood covariance matrix used for robustness to some misspecifications; calculated using numerical (complex-step) differentiation.

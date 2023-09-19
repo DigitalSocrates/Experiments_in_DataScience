@@ -35,7 +35,7 @@ class Game:
             elif position == 3:
                 self.set_third_ball(li_cell.text.strip())
             elif position == 4:
-                self.set_forth_ball(li_cell.text.strip())
+                self.set_fourth_ball(li_cell.text.strip())
             elif position == 5:
                 self.set_fifth_ball(li_cell.text.strip())
             elif position == 6:

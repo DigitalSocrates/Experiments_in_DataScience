@@ -16,6 +16,7 @@ def scrape_lottery_data(year: int, file_path: str,
         default format is parquet otherwise the
         dataset will be saved in csv format
     """
+
     # instantiate game object
     game = Game()
 
