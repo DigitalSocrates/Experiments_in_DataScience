@@ -17,7 +17,7 @@ class Trainer:
                  trace: bool = True,
                  error_action: str = 'ignore',
                  maxiter: int = 100):
-        self.suppress_warnings=suppress_warnings
+        self.suppress_warnings = suppress_warnings
         self.trace = trace
         self.error_action = error_action
         self.maxiter = maxiter
@@ -35,15 +35,16 @@ class Trainer:
         for order in range(4, max_order):
             for score in self.SCORING_LIST:
                 for season in self.SESONAL_LIST:
-                    model = auto_arima(ts_data,
-                                       trace=self.trace,
-                                       error_action=self.error_action,
-                                       max_order=order,
-                                       suppress_warnings=self.suppress_warnings,
-                                       stepwise=True,
-                                       scoring=score,
-                                       seasonal=season,
-                                       maxiter=self.maxiter)
+                    model = auto_arima(
+                        ts_data,
+                        trace=self.trace,
+                        error_action=self.error_action,
+                        max_order=order,
+                        suppress_warnings=self.suppress_warnings,
+                        stepwise=True,
+                        scoring=score,
+                        seasonal=season,
+                        maxiter=self.maxiter)
 
                     if best_model is None:
                         # Get the best ARIMA order and model
@@ -70,21 +71,18 @@ class Trainer:
 
         for method in self.METHOD_LIST:
             for cov_type in self.COV_LIST:
-                if method=='burg' and cov_type=='oim':
-                    continue
-                else:
-                    model_fit = arima_model.fit(method=method, cov_type=cov_type)
-                    y_pred = model_fit.predict(n_periods=1,
-                                               exog=None,
-                                               return_conf_int=True)
+                model_fit = arima_model.fit(method=method, cov_type=cov_type)
+                y_pred = model_fit.predict(n_periods=1,
+                                           exog=None,
+                                           return_conf_int=True)
 
-                    mse = self.calculate_mse(ts_data=ts_data, y_pred=y_pred)
-                    if mse < best_mse:
-                        print(f'Fit using method:{method} \
-                              and cov_type:{cov_type} with mse {mse}')
-                        best_mse = mse
-                        final_model = arima_model
-                        final_model_fit = model_fit
+                mse = self.calculate_mse(ts_data=ts_data, y_pred=y_pred)
+                if mse < best_mse:
+                    print(f'Fit using method:{method} \
+                            and cov_type:{cov_type} with mse {mse}')
+                    best_mse = mse
+                    final_model = arima_model
+                    final_model_fit = model_fit
 
         return final_model, final_model_fit
 
