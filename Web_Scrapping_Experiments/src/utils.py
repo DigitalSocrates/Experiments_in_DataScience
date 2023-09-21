@@ -27,7 +27,6 @@ def scrape_lottery_data(year: int, file_path: str,
     url = "https://www.walottery.com/WinningNumbers/PastDrawings.aspx?" +\
         f"gamename=powerball&unittype=year&unitcount={year}"
 
-
     # Send an HTTP GET request
     try:
         response = requests.get(url, timeout=60) # will wait for 60 seconds
@@ -88,8 +87,9 @@ def read_all_parquet_files(directory: str):
     return None
 
 
-def generate_value_permutations(values = ('p', 'q', 'd')):
+def generate_value_permutations(p, q, d):
     """ generate all permutations based on your input """
+    values = (p, q, d)
     # Generate all permutations
     permuted_values = permutations(values)
 

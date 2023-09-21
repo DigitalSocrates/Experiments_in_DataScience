@@ -88,7 +88,8 @@ class Trainer:
 
     def calculate_mse(self, ts_data, y_pred):
         """
-        Calculate Mean Squared Error (MSE) between the actual and predicted values.
+        Calculate Mean Squared Error (MSE) 
+            between the actual and predicted values.
         Returns the MSE.
         """
         mse = mean_squared_error(ts_data, y_pred)
@@ -99,13 +100,15 @@ class Trainer:
         log_likelihood = -0.5 * m_aic
         num_params = best_order[0] + best_order[1] + best_order[2] + 1
         aic = -2 * log_likelihood + 2 * num_params
-        aicc = aic + (2 * num_params * (num_params + 1)) / (size - num_params - 1)
+        aicc = aic + (2 * num_params * (num_params + 1)) \
+            / (size - num_params - 1)
         bic = -2 * log_likelihood + num_params * np.log(size)
 
         return aic, aicc, bic
 
-    def compare_two_models (self, model1, model2, size):
-        """ Compare and select the best model based on your preferred criterion (e.g., AIC) """
+    def compare_two_models(self, model1, model2, size):
+        """ Compare and select the best model based on 
+        your preferred criterion (e.g., AIC) """
         aic1, aicc1, bic1 = self.calculate_metrics(size=size,
                                                    m_aic=model1.aic(),
                                                    best_order=model1.order)
