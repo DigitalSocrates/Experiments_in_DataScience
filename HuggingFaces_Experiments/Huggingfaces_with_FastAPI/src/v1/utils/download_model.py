@@ -17,7 +17,7 @@ subdir = os.path.join('models', model_name)
 if not os.path.exists(subdir):
     os.makedirs(subdir)
 # needed for Windows
-subdir = subdir.replace('\\','/')
+subdir = subdir.replace('\\', '/')
 
 # iterates over a list of filenames:
 for filename in ['checkpoint', 'encoder.json',

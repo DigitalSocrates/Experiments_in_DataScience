@@ -14,9 +14,9 @@ class SentimentModel:
         raise RuntimeError('Call instance() instead')
 
     @classmethod
-    def instance(
-        cls,
-        model: str = "distilbert-base-uncased-finetuned-sst-2-english"):
+    def instance(cls,
+                 model: str = \
+                    "distilbert-base-uncased-finetuned-sst-2-english"):
         """ initialize sentiment model """
         if cls.sentiment_pipeline is None:
             logger.info('Creating new instance')
