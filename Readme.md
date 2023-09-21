@@ -9,18 +9,18 @@ Here's a glimpse of the exciting concepts we've been delving into:
 
 3. Hugging Faces - Work in Progress (WIP):
   We're actively exploring the world of Hugging Face's Transformers library to leverage state-of-the-art natural language processing models for various applications. Stay tuned for updates on our progress in this area.
-FastAPI - Work in Progress (WIP):
 
-Our ongoing work with FastAPI focuses on building robust and scalable APIs for machine learning models. This is an essential aspect of deploying and integrating machine learning solutions into real-world applications.
-Clustering - Work in Progress (WIP):
+3. FastAPI - Work in Progress (WIP):
+  Our ongoing work with FastAPI focuses on building robust and scalable APIs for machine learning models. This is an essential aspect of deploying and integrating machine learning solutions into real-world applications.
 
-Clustering techniques are a fundamental component of unsupervised learning. We're in the process of experimenting with various clustering algorithms to uncover insights hidden within complex datasets.
-Data Quality:
+5. Clustering - Work in Progress (WIP):
+  Clustering techniques are a fundamental component of unsupervised learning. We're in the process of experimenting with various clustering algorithms to uncover insights hidden within complex datasets.
 
-Ensuring the quality and integrity of data is paramount in data science. You can refer to our article on LinkedIn, Data Quality and Data Analysis, for insights into our approaches to data quality assessment and improvement.
-Web Scraping:
+6. Data Quality:
+  Ensuring the quality and integrity of data is paramount in data science. You can refer to our article on LinkedIn, Data Quality and Data Analysis, for insights into our approaches to data quality assessment and improvement.
 
-Web scraping is a crucial skill in data acquisition. We're actively developing and sharing techniques for extracting valuable information from the web.
+7. Web Scraping:
+   Web scraping is a crucial skill in data acquisition. We're actively developing and sharing techniques for extracting valuable information from the web.
 ARIMA Model Training:
 
 Time series analysis is a fascinating field, and ARIMA models are a key tool in this domain. We're providing insights into training and fine-tuning ARIMA models for time series forecasting.
