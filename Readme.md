@@ -4,12 +4,11 @@ Welcome to the DataScience Repository for ML Ops and Data Science Experiments! T
 
 Here's a glimpse of the exciting concepts we've been delving into:
 
-MLflow (See MLFlow Experiments):
+1. MLflow (See MLFlow Experiments):
+  Our experiments with MLflow are designed to showcase the power of efficient experiment tracking, model versioning, and deployment. To explore this further, you can also refer to the article published on LinkedIn: Leveraging MLflow for Efficient Experimentation in Data Science.
 
-Our experiments with MLflow are designed to showcase the power of efficient experiment tracking, model versioning, and deployment. To explore this further, you can also refer to the article published on LinkedIn: Leveraging MLflow for Efficient Experimentation in Data Science.
-Hugging Faces - Work in Progress (WIP):
-
-We're actively exploring the world of Hugging Face's Transformers library to leverage state-of-the-art natural language processing models for various applications. Stay tuned for updates on our progress in this area.
+3. Hugging Faces - Work in Progress (WIP):
+  We're actively exploring the world of Hugging Face's Transformers library to leverage state-of-the-art natural language processing models for various applications. Stay tuned for updates on our progress in this area.
 FastAPI - Work in Progress (WIP):
 
 Our ongoing work with FastAPI focuses on building robust and scalable APIs for machine learning models. This is an essential aspect of deploying and integrating machine learning solutions into real-world applications.
