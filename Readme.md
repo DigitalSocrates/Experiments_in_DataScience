@@ -5,7 +5,7 @@ Welcome to the DataScience Repository for ML Ops and Data Science Experiments! T
 Here's a glimpse of the exciting concepts we've been delving into:
 
 1. MLflow (See MLFlow Experiments):
-  Our experiments with MLflow are designed to showcase the power of efficient experiment tracking, model versioning, and deployment. To explore this further, you can also refer to the article published on LinkedIn: Leveraging MLflow for Efficient Experimentation in Data Science.
+  Our experiments with MLflow are designed to showcase the power of efficient experiment tracking, model versioning, and deployment. To explore this further, you can also refer to the article published on LinkedIn: Leveraging MLflow for Efficient Experimentation in Data Science. https://www.linkedin.com/pulse/leveraging-mlflow-efficient-experimentation-data-science-shmigol
 
 1. Hugging Faces - Work in Progress (WIP):
   We're actively exploring the world of Hugging Face's Transformers library to leverage state-of-the-art natural language processing models for various applications. Stay tuned for updates on our progress in this area.
@@ -17,7 +17,7 @@ Here's a glimpse of the exciting concepts we've been delving into:
   Clustering techniques are a fundamental component of unsupervised learning. We're in the process of experimenting with various clustering algorithms to uncover insights hidden within complex datasets.
 
 1. Data Quality:
-  Ensuring the quality and integrity of data is paramount in data science. You can refer to our article on LinkedIn, Data Quality and Data Analysis, for insights into our approaches to data quality assessment and improvement.
+  Ensuring the quality and integrity of data is paramount in data science. You can refer to our article on LinkedIn, Data Quality and Data Analysis https://www.linkedin.com/posts/gshmigol_dataquality-dataanalysis-dataintegrity-activity-7108126418655485953-o58b, for insights into our approaches to data quality assessment and improvement.
 
 1. Web Scraping:
    Web scraping is a crucial skill in data acquisition. We're actively developing and sharing techniques for extracting valuable information from the web.
