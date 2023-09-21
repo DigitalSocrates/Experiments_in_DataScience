@@ -1,5 +1,6 @@
 """ Sentiment Model """
 import logging
+import torch
 from transformers import pipeline
 
 # Create a custom logger
@@ -9,6 +10,7 @@ logger = logging.getLogger(__name__)
 class SentimentModel:
     """ sentiment model using transformers pipeline  """
     sentiment_pipeline = None
+    device = torch.device('cuda:0')
 
     def __init__(self):
         raise RuntimeError('Call instance() instead')
@@ -22,7 +24,8 @@ class SentimentModel:
             logger.info('Creating new instance')
             # cls.sentiment_pipeline = cls.__new__(cls)
             cls.sentiment_pipeline = pipeline("sentiment-analysis",
-                                              model=model)
+                                              model=model,
+                                              device=cls.device)
         # oracle = pipeline("question-answering",
         # model="distilbert-base-cased-distilled-squad",
         # tokenizer="bert-base-cased")

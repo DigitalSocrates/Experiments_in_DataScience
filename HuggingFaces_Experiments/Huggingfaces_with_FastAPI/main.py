@@ -1,4 +1,5 @@
 """ FASTAPi app """
+import os
 import logging
 import uvicorn
 from pydantic import BaseModel
@@ -21,12 +22,15 @@ from src.v1.text_generator import TextGenerator
 
 # initialize app
 app = FastAPI(title="Sample ML OPs App",
-              docs_url="/docs", version="0.0.1",
+              docs_url="/docs",
+              version="0.0.1",
               debug=True)
 
 
 # Create a custom logger
 logger = logging.getLogger(__name__)
+
+os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "max_split_size_mb:4096"
 
 
 class TextIn(BaseModel):
@@ -50,7 +54,7 @@ async def root():
 
 @app.get("/sentiment_details")
 async def sentiment_details():
-    """will return some json for now"""
+    """will return device information """
 
     try:
         return JSONResponse(
@@ -67,7 +71,7 @@ async def sentiment_details():
 
 @app.get("/sentiment/{sentiment}", response_model=None)
 async def read_item(sentiment: str, q: str | None = None) -> dict:
-    """takes user provided value and determines sentiment"""
+    """ takes user provided value and determines sentiment """
     try:
         return JSONResponse(
             status_code=200,
@@ -83,7 +87,9 @@ async def read_item(sentiment: str, q: str | None = None) -> dict:
 
 @app.get("/text_generation/{text}", response_model=None)
 async def generate_text(text: str) -> dict:
-    """takes user provided value and generates text"""
+    """ takes user provided value and generates text
+    this task will take a while (upward of a few minutes)
+    """
     try:
         # generate prediction
         result = text_generator.generate_text(text)
@@ -130,13 +136,13 @@ async def generate_code(function_body: str):
 
 
 @app.post("/generate/{sample}")
-def generate(payload: TextIn):
+async def generate(payload: TextIn):
     """test post"""
     result = f"{payload}"
     return {"result": result}
 
 
-def get_default_error_response(status_code=500,
+async def get_default_error_response(status_code=500,
                                message="Internal Server Error"):
     """default error message template"""
     return JSONResponse(
@@ -147,4 +153,4 @@ def get_default_error_response(status_code=500,
 
 # run as a script
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)
