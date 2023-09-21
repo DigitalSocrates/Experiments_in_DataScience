@@ -42,7 +42,7 @@ class TextGenerationModel(mlflow.pyfunc.PythonModel):
                                                     temperature=0.9,
                                                     do_sample=True,
                                                     max_length=max_length,
-                                                    top_k = 50)
+                                                    top_k=50)
         return cls
 
     @classmethod
@@ -56,7 +56,7 @@ class TextGenerationModel(mlflow.pyfunc.PythonModel):
 
         print(cls.fill_mask(f"Hugging Face's DistilBert is a \
                             {cls.tokenizer.mask_token} model."))
-        #return cls.fill_mask
+        return cls.tokenizer.mask_token
 
     @classmethod
     def get_generation_config(cls) -> GenerationConfig:

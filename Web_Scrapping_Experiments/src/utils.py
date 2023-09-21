@@ -29,7 +29,7 @@ def scrape_lottery_data(year: int, file_path: str,
 
     # Send an HTTP GET request
     try:
-        response = requests.get(url, timeout=60) # will wait for 60 seconds
+        response = requests.get(url, timeout=60)
     except requests.exceptions.Timeout:
         print(f'was not able to get url {url} due to timeout')
         return

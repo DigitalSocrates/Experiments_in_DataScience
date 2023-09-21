@@ -88,7 +88,7 @@ class Trainer:
 
     def calculate_mse(self, ts_data, y_pred):
         """
-        Calculate Mean Squared Error (MSE) 
+        Calculate Mean Squared Error (MSE)
             between the actual and predicted values.
         Returns the MSE.
         """
@@ -107,7 +107,7 @@ class Trainer:
         return aic, aicc, bic
 
     def compare_two_models(self, model1, model2, size):
-        """ Compare and select the best model based on 
+        """ Compare and select the best model based on
         your preferred criterion (e.g., AIC) """
         aic1, aicc1, bic1 = self.calculate_metrics(size=size,
                                                    m_aic=model1.aic(),
