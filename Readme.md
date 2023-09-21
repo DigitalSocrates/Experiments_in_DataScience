@@ -5,34 +5,34 @@ Welcome to the DataScience Repository for ML Ops and Data Science Experiments! T
 Here's a glimpse of the exciting concepts we've been delving into:
 
 1. ***MLflow (See MLFlow Experiments):***
-  - Our experiments with MLflow are designed to showcase the power of efficient experiment tracking, model versioning, and deployment. To explore this further, you can also refer to the article published on LinkedIn: Leveraging MLflow for Efficient Experimentation in Data Science. https://www.linkedin.com/pulse/leveraging-mlflow-efficient-experimentation-data-science-shmigol
+    - Our experiments with MLflow are designed to showcase the power of efficient experiment tracking, model versioning, and deployment. To explore this further, you can also refer to the article published on LinkedIn: [Leveraging MLflow for Efficient Experimentation in Data Science.](https://www.linkedin.com/pulse/leveraging-mlflow-efficient-experimentation-data-science-shmigol)
 
 1. ***Hugging Faces - Work in Progress (WIP):***
-  - We're actively exploring the world of Hugging Face's Transformers library to leverage state-of-the-art natural language processing models for various applications. Stay tuned for updates on our progress in this area.
+    - We're actively exploring the world of Hugging Face's Transformers library to leverage state-of-the-art natural language processing models for various applications. Stay tuned for updates on our progress in this area.
 
 1. ***FastAPI - Work in Progress (WIP):***
-  - Our ongoing work with FastAPI focuses on building robust and scalable APIs for machine learning models. This is an essential aspect of deploying and integrating machine learning solutions into real-world applications.
+    - Our ongoing work with FastAPI focuses on building robust and scalable APIs for machine learning models. This is an essential aspect of deploying and integrating machine learning solutions into real-world applications.
 
 1. ***Clustering - Work in Progress (WIP):***
-  - Clustering techniques are a fundamental component of unsupervised learning. We're in the process of experimenting with various clustering algorithms to uncover insights hidden within complex datasets.
+    - Clustering techniques are a fundamental component of unsupervised learning. We're in the process of experimenting with various clustering algorithms to uncover insights hidden within complex datasets.
 
 1. ***Data Quality:***
-  - Ensuring the quality and integrity of data is paramount in data science. You can refer to our article on LinkedIn, Data Quality and Data Analysis https://www.linkedin.com/posts/gshmigol_dataquality-dataanalysis-dataintegrity-activity-7108126418655485953-o58b, for insights into our approaches to data quality assessment and improvement.
+    - Ensuring the quality and integrity of data is paramount in data science. You can refer to our article on LinkedIn, [Data Quality and Data Analysis](https://www.linkedin.com/posts/gshmigol_dataquality-dataanalysis-dataintegrity-activity-7108126418655485953-o58b), for insights into our approaches to data quality assessment and improvement.
 
 1. ***Web Scraping:***
-   - Web scraping is a crucial skill in data acquisition. We're actively developing and sharing techniques for extracting valuable information from the web.
+     - Web scraping is a crucial skill in data acquisition. We're actively developing and sharing techniques for extracting valuable information from the web.
 
 1. ***ARIMA Model Training:***
-  - Time series analysis is a fascinating field, and ARIMA models are a key tool in this domain. We're providing insights into training and fine-tuning ARIMA models for time series forecasting.
+    - Time series analysis is a fascinating field, and ARIMA models are a key tool in this domain. We're providing insights into training and fine-tuning ARIMA models for time series forecasting.
 
 1. ***Training Using Hyperparameters:
-  - Hyperparameter tuning is a crucial step in optimizing machine learning models. We'll guide you through the process of finding the best hyperparameters for your models.
+    - Hyperparameter tuning is a crucial step in optimizing machine learning models. We'll guide you through the process of finding the best hyperparameters for your models.
 
 1. ***Saving Models in .pkl Format:***
-  - Learn how to save your trained models in a portable .pkl format for easy deployment and sharing.
+    - Learn how to save your trained models in a portable .pkl format for easy deployment and sharing.
 
 1. ***Predicting Numbers:***
-  - We're exploring various prediction tasks, including numeric predictions, and sharing our findings and best practices.
+    - We're exploring various prediction tasks, including numeric predictions, and sharing our findings and best practices.
 
 
 
