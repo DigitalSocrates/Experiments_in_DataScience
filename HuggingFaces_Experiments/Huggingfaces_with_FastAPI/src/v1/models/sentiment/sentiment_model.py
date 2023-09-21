@@ -15,8 +15,8 @@ class SentimentModel:
 
     @classmethod
     def instance(cls,
-                 model: str = \
-                    "distilbert-base-uncased-finetuned-sst-2-english"):
+                 model: str =
+                 "distilbert-base-uncased-finetuned-sst-2-english"):
         """ initialize sentiment model """
         if cls.sentiment_pipeline is None:
             logger.info('Creating new instance')
