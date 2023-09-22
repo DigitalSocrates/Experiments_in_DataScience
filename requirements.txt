@@ -141,6 +141,7 @@ wcwidth==0.2.6
 websocket-client==1.6.3
 Werkzeug==2.3.7
 wrapt==1.15.0
+yellowbrick==1.5
 zipp==3.16.2
 pylint
 black
