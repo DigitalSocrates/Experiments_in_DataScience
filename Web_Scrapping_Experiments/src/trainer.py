@@ -51,12 +51,13 @@ class Trainer:
                         best_order = model.order
                         best_model = model
                     else:
-                        best_model = self.compare_two_models(model1=model,
-                                                             model2=best_model,
-                                                             size=len(ts_data))
-                        best_order = best_model.order
+                        best_model, best_order, best_criteria =\
+                        self.compare_two_models(
+                            model1=model,
+                            model2=best_model,
+                            size=len(ts_data))
 
-        return best_order, best_model
+        return best_order, best_model, best_criteria
 
     def fit_arima_model(self, ts_data, order):
         """
@@ -119,23 +120,29 @@ class Trainer:
 
         if aic1 < aic2:
             best_model = model1
+            best_order = model1.order
             best_criteria = "AIC"
         elif aic2 < aic1:
             best_model = model2
+            best_order = model2.order
             best_criteria = "AIC"
         else:
             # If AIC is tied, you can use AICc or BIC as a tiebreaker
             if aicc1 < aicc2:
                 best_model = model1
+                best_order = model1.order
                 best_criteria = "AICc"
             elif aicc2 < aicc1:
                 best_model = model2
+                best_order = model2.order
                 best_criteria = "AICc"
             else:
                 if bic1 < bic2:
                     best_model = model1
+                    best_order = model1.order
                     best_criteria = "BIC"
                 else:
                     best_model = model2
+                    best_order = model2.order
                     best_criteria = "BIC"
-        return best_model, best_criteria
+        return best_model, best_order, best_criteria

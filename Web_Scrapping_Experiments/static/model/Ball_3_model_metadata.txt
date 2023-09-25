@@ -1,23 +1,24 @@
                                SARIMAX Results                                
 ==============================================================================
-Dep. Variable:                 Ball_3   No. Observations:                  599
-Model:                          ARIMA   Log Likelihood               -2359.849
-Date:                Tue, 19 Sep 2023   AIC                           4723.698
-Time:                        14:27:33   BIC                           4732.489
-Sample:                             0   HQIC                          4727.121
-                                - 599                                         
-Covariance Type:        robust_approx                                         
+Dep. Variable:                 Ball_3   No. Observations:                  602
+Model:                          ARIMA   Log Likelihood               -2373.041
+Date:                Mon, 25 Sep 2023   AIC                           4750.081
+Time:                        10:22:34   BIC                           4758.882
+Sample:                             0   HQIC                          4753.507
+                                - 602                                         
+Covariance Type:               robust                                         
 ==============================================================================
                  coef    std err          z      P>|z|      [0.025      0.975]
 ------------------------------------------------------------------------------
-const         35.2454      0.508     69.356      0.000      34.249      36.241
-sigma2       154.6894      7.537     20.524      0.000     139.917     169.461
+const         35.2492      0.508     69.379      0.000      34.253      36.245
+sigma2       155.3964      7.532     20.632      0.000     140.634     170.158
 ===================================================================================
-Ljung-Box (L1) (Q):                   0.18   Jarque-Bera (JB):                 8.69
-Prob(Q):                              0.67   Prob(JB):                         0.01
-Heteroskedasticity (H):               0.97   Skew:                            -0.06
-Prob(H) (two-sided):                  0.81   Kurtosis:                         2.42
+Ljung-Box (L1) (Q):                   0.13   Jarque-Bera (JB):                 8.88
+Prob(Q):                              0.71   Prob(JB):                         0.01
+Heteroskedasticity (H):               1.17   Skew:                            -0.05
+Prob(H) (two-sided):                  0.26   Kurtosis:                         2.41
 ===================================================================================
 
 Warnings:
-[1] Quasi-maximum likelihood covariance matrix used for robustness to some misspecifications; calculated using numerical (complex-step) differentiation.
+[1] Quasi-maximum likelihood covariance matrix used for robustness to some misspecifications; calculated using the observed information matrix (complex-step) described in Harvey (1989).
+best criteria used: BIC
