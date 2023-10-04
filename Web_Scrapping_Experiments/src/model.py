@@ -1,4 +1,4 @@
-""" convinience class for keeping track of model and its metadata """
+""" Convenience Class for Managing Models and Their Metadata """
 
 
 class Model:

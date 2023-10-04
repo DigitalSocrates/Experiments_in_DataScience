@@ -1,17 +1,18 @@
 """ Text Generation Model """
 import os
-import logging
 import torch
 import mlflow
 from transformers import pipeline
 from transformers.generation import GenerationConfig
 from transformers import GPTNeoForCausalLM, GPT2Tokenizer
+from src.v1.utils.custom_logger import CustomLogger
 
 # Create a custom logger
-logger = logging.getLogger(__name__)
+logger_initializer = CustomLogger(__name__)
+logger = logger_initializer.get_logger()
 
-
-os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "max_split_size_mb:5012"
+# Set pytorch GPU memory limit
+os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "max_split_size_mb:4096"
 
 
 class TextGenerationModel(mlflow.pyfunc.PythonModel):

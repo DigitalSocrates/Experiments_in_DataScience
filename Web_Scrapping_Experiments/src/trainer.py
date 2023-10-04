@@ -1,4 +1,10 @@
-""" all model training steps are here """
+""" Main Model Trainer Class
+
+This class encapsulates all the necessary steps for training a 
+machine learning model. It serves as the central component for 
+training and managing machine learning models, providing a 
+comprehensive set of functionalities and routines 
+for model development and evaluation. """
 import numpy as np
 from pmdarima import auto_arima
 from statsmodels.tsa.arima.model import ARIMA
@@ -26,8 +32,13 @@ class Trainer:
                               ts_data,
                               max_order=16):
         """
-        Find the best ARIMA model for the given time series data.
-        Returns the best ARIMA order.
+        Determine the Optimal ARIMA Model for the Provided Time Series Data
+
+        This function is designed to identify the most suitable ARIMA model
+        for a given time series dataset. It exhaustively searches through
+        various ARIMA model orders to discover the one that best fits the data.
+        The function then returns the optimal ARIMA order, 
+        providing valuable insights for time series analysis and forecasting.
         """
         best_order = None
         best_model = None

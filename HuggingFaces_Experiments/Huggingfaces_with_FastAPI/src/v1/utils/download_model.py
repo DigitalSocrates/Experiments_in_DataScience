@@ -1,4 +1,6 @@
-""" script to download models """
+""" script to download models 
+    TODO move it into utilities
+"""
 import os
 import sys
 import requests

@@ -1,44 +1,39 @@
 """ FASTAPi app """
 import os
-import logging
 import uvicorn
-from pydantic import BaseModel
-from fastapi import FastAPI
-from fastapi.responses import JSONResponse
-from transformers import AutoTokenizer
 import transformers
 import torch
+from pydantic import BaseModel
+from fastapi.responses import JSONResponse
+from transformers import AutoTokenizer
 
 # from sqlalchemy import create_engine
 # from sqlalchemy.orm import sessionmaker
 # from settings import DATABASE_URL
-
-from src.v1.sentiment_analysis import SentimentAnalysis
+from src.v1.utils.custom_logger import CustomLogger
 from src.v1.text_generator import TextGenerator
-
-# engine = create_engine(DATABASE_URL)
-# Session = sessionmaker(bind=engine)
-
-
-# initialize app
-app = FastAPI(title="Sample ML OPs App",
-              docs_url="/docs",
-              version="0.0.1",
-              debug=True)
-
+from src.v1.utils.create_app import App
+from src.v1.utils.error_handling import get_default_error_response
+from src.v1.core.config \
+    import API_PREFIX, APP_NAME, APP_VERSION, IS_DEBUG, DOCS_URL, DEFAULT_MODEL_PATH
 
 # Create a custom logger
-logger = logging.getLogger(__name__)
+logger_initializer = CustomLogger(__name__)
+logger = logger_initializer.get_logger()
 
+# Set pytorch GPU memory limit
 os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "max_split_size_mb:4096"
-
 
 class TextIn(BaseModel):
     text: str
 
+# initialize App
+App = App(DEFAULT_MODEL_PATH)
+
+# initialize app
+app = App.create_app(APP_NAME, APP_VERSION, IS_DEBUG, DOCS_URL)
 
 # initialize sentiment and text generator pipelines
-sentiment_analysis = SentimentAnalysis()
 text_generator = TextGenerator()
 
 
@@ -50,39 +45,6 @@ async def root():
         status_code=200,
         content={"status_code": 200, "message": "Sample ML OPs API is online"},
     )
-
-
-@app.get("/sentiment_details")
-async def sentiment_details():
-    """will return device information """
-
-    try:
-        return JSONResponse(
-            status_code=200,
-            content={
-                "status_code": 200,
-                "message": f"{sentiment_analysis.sentiment_model.device}",
-            },
-        )
-    except Exception as ex:
-        logger.error("Exception occured %s", ex)
-        return get_default_error_response()
-
-
-@app.get("/sentiment/{sentiment}", response_model=None)
-async def read_item(sentiment: str, q: str | None = None) -> dict:
-    """ takes user provided value and determines sentiment """
-    try:
-        return JSONResponse(
-            status_code=200,
-            content={
-                "status_code": 200,
-                "msg": f"{sentiment_analysis.process_sentiment(sentiment)}",
-            },
-        )
-    except Exception as ex:
-        logger.error("Exception occured %s", ex)
-        return get_default_error_response(status_code=500)
 
 
 @app.get("/text_generation/{text}", response_model=None)
@@ -140,15 +102,6 @@ async def generate(payload: TextIn):
     """test post"""
     result = f"{payload}"
     return {"result": result}
-
-
-async def get_default_error_response(status_code=500,
-                                     message="Internal Server Error"):
-    """default error message template"""
-    return JSONResponse(
-        status_code=status_code,
-        content={"status_code": status_code, "message": message},
-    )
 
 
 # run as a script

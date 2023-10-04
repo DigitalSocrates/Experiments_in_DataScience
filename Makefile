@@ -9,6 +9,22 @@ test:
 format:	
 	black *.py
 
+run:
+	## 
+
+clean:
+	-find . -name '*.pyc' -exec rm -rf {} \;
+	-find . -name '__pycache__' -exec rm -rf {} \;
+	-rm -rf .cache
+	-rm -rf build
+	-rm -rf dist
+	-rm -rf *.egg-info
+	-rm -rf htmlcov*
+	-rm -rf .tox/
+	-rm -rf docs/_build
+	-rm -r .coverage
+	-rm -rf .pytest_cache
+
 codestyle:
 	pycodestyle $(PROJECT)
 
